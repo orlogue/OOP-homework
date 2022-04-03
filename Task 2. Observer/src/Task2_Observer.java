@@ -32,15 +32,15 @@ class WeatherData implements Subject {
     }
 
     float getTemperature() {
-        return 5;
+        return (float) (-2 + Math.random() * 7);
     }
 
     float getHumidity() {
-        return 80;
+        return (float) (75 + Math.random() * 26);
     }
 
     float getPressure() {
-        return 760;
+        return (float) (745 + Math.random() * 26);
     }
 
     public void measurementsChanged() {
@@ -71,9 +71,9 @@ class CurrentConditionsDisplay implements Observer {
 
     @Override
     public void display() {
-        System.out.println("Temperature: " + temperature + "C");
-        System.out.println("Humidity: " + humidity + "%");
-        System.out.println("Pressure: " + pressure + "mm Hg\n");
+        System.out.printf("Temperature now: %.1fC\n", temperature);
+        System.out.printf("Humidity now: %.1f", humidity); System.out.print("%\n");
+        System.out.printf("Air pressure now: %.1fmm Hg\n\n", pressure);
     }
 }
 
@@ -92,9 +92,9 @@ class PreviousConditionDisplay implements Observer {
     }
 
     public void display() {
-        System.out.println("Temperature last week: " + (temperature - 10) + "C");
-        System.out.println("Humidity last week: " + (humidity + 10) + "%");
-        System.out.println("Pressure last week: " + (pressure + 15) + "mm Hg\n");
+        System.out.printf("Temperature yesterday: %.1fC\n", temperature);
+        System.out.printf("Humidity yesterday: %.1f", humidity); System.out.print("%\n");
+        System.out.printf("Air pressure yesterday: %.1fmm Hg\n\n", pressure);
     }
 }
 
@@ -113,9 +113,9 @@ class ForecastConditionDisplay implements Observer {
     }
 
     public void display() {
-        System.out.println("Temperature next week: " + (temperature + 3) + "C");
-        System.out.println("Humidity next week: " + (humidity + 7) + "%");
-        System.out.println("Pressure next week: " + (pressure - 5) + "mm Hg\n");
+        System.out.printf("Temperature tomorrow: %.1fC\n", temperature);
+        System.out.printf("Humidity tomorrow: %.1f", humidity); System.out.print("%\n");
+        System.out.printf("Air pressure tomorrow: %.1fmm Hg\n\n", pressure);
     }
 }
 
