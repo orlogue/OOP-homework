@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.ArrayList;
 
 class Dough {
@@ -175,7 +174,7 @@ abstract class Pizza {
     protected Vegetables vegetables;
     protected Sausages sausages;
     protected Cheese cheese;
-    protected List<String> ingredients = new ArrayList<>();
+    protected ArrayList<String> ingredients = new ArrayList<>();
 
     abstract void prepare();
 
